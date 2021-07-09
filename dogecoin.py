@@ -1,7 +1,9 @@
 #Made by Khiem. Designed for the TI-Nspire. 
-#Use font size 9 (Menu -> 1. Actions -> 6. Settings) 
+#Use font size 9 
+#(Menu -> 1. Actions -> 6. Settings) 
 #Press Ctrl-R to run.
 
+#Modules
 from random import *
 from time import *
 
@@ -40,7 +42,7 @@ def menu():
   global tax
   global dif
   amt=win=0
-  rdays=15
+  rdays=14
   price1=price2=day=0
   money=cost=0
   daysold=dayspent=0
@@ -57,14 +59,16 @@ def menu():
   print("                                   ====Rules====")
   print("Buy low, sell high. Don't run out of money.")
   print("Rent doubles and taxes increase by 4% every week.")
-  print("Get to $1 septillion to win and keep going.")
+  print("Get to $1 septillion to win and continue.")
   print("==============")
   input("Type 1 to play: ")
   print("==============")
   print(" ")
   print(" ")
-  print("==============")
-  print("Select difficulty:")
+  print("                                  ==============")
+  print("                                    Select difficulty")
+  print("                                  ==============")
+  print(" ")
   print("==============")
   print("Starting balance: $100, Tax increase: 2% per week")
   print("==============")
@@ -167,11 +171,17 @@ while loop==0:
     print("Rent pay (Due): - $"+short(rent))
     print("Tax (Due): {:.1f}%".format(taxp*100),"(${})".format(short(tax)))
     print("===========")
-    rdays=8
+    rdays=7
     rent=rent*2
-    if taxp<=18 and dif==1 or 2: taxp=taxp+0.02
-    elif taxp<=38 and dif==3: taxp=taxp+0.02
-    elif taxp<=58 and dif==4: taxp=taxp+0.02
+#Tax settings
+    if taxp<0.19 and dif==1:
+      taxp=taxp+0.02
+    if taxp<0.19 and dif==2:
+      taxp=taxp+0.02
+    if taxp<0.39 and dif==3:
+      taxp=taxp+0.02
+    if taxp<0.59 and dif==4:
+      taxp=taxp+0.02
 
 #Normal day
   elif rdays!=0:
